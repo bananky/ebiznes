@@ -17,7 +17,7 @@
 
 :white_check_mark: 3.0 wymaganie 1 [Link do commita 1](https://github.com/bananky/ebiznes/commit/50610d1b105cb64afb263af3174ea0ec20728330)
 
-:white_check_mark: 3.5 wymaganie 2 [Link do commita 2] (https://github.com/bananky/ebiznes/commit/bf5d3bcb1307e738bb32ee0a6ef2866465a8f466)
+:white_check_mark: 3.5 wymaganie 2 [Link do commita 2](https://github.com/bananky/ebiznes/commit/bf5d3bcb1307e738bb32ee0a6ef2866465a8f466)
 
 :x: 4.0 wymaganie 3 
 
