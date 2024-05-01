@@ -14,3 +14,6 @@ val categories: List<Category> = listOf(
 fun getCategories(): String {
     return categories.joinToString(separator = "\n") { it.name }
 }
+
+@Serializable
+data class CategoryRequest(val category: String)
