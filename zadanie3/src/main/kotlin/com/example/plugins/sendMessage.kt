@@ -33,6 +33,28 @@ fun Application.sendMessageModule(kord: Kord) {
             val productsJson = Json.encodeToString(products.filter { it.category == categoryId })
             call.respondText(productsJson, ContentType.Application.Json)
         }
+
+        post("/slack/events") {
+            val params = call.receiveParameters()
+            val command = params["command"]
+            val text = params["text"]
+
+            val response = when (command) {
+                "/categories" -> getCategories()
+                "/products" -> {
+                    val categoryId = categories.find { it.name.equals(text, ignoreCase = true) }?.id
+                    if (categoryId != null) {
+                        getProducts(categoryId)
+                    } else {
+                        ""
+                    }
+                }
+
+                else -> {""}
+            }
+            call.respondText(response)
+        }
+
     }
 }
 
