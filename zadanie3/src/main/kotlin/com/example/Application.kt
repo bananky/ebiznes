@@ -9,14 +9,15 @@ import dev.kord.core.event.message.MessageCreateEvent
 import dev.kord.core.on
 import dev.kord.gateway.Intent
 import dev.kord.gateway.PrivilegedIntent
+import com.example.plugins.getCategories
 
 suspend fun main() {
     val kord = Kord() // token bota usunięty do publikacji na githuba
 
     kord.on<MessageCreateEvent> {
         if (message.author?.isBot != false) return@on
-        if (message.content != "!hello") return@on
-        message.channel.createMessage("Hello!")
+        if (message.content != "!categories") return@on
+        message.channel.createMessage(getCategories())
     }
 
     embeddedServer(Netty, port = 3000, host = "0.0.0.0") {
