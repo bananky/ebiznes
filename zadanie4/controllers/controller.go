@@ -5,50 +5,48 @@ import (
 	"strconv"
 
 	"github.com/labstack/echo/v4"
+	"gorm.io/gorm"
+
+	"zadanie4/models"
 )
 
-type Product struct {
-	ID    int     `json:"id"`
-	Name  string  `json:"name"`
-	Price float32 `json:"price"`
-}
-
-var products = map[int]Product{
-	1: {ID: 1, Name: "taśma", Price: 4.99},
-	2: {ID: 2, Name: "klej", Price: 3.99},
-	3: {ID: 3, Name: "papier a4", Price: 29.99},
-}
-
 func Create(c echo.Context) error {
-	product := new(Product)
+	db := c.Get("db").(*gorm.DB)
+
+	product := new(models.Product)
 	if err := c.Bind(product); err != nil {
 		return err
 	}
 
-	id := len(products) + 1
-	product.ID = id
-	products[id] = *product
-
+	db.Create(product)
 	return c.JSON(http.StatusCreated, product)
 }
 
 func ReadAll(c echo.Context) error {
+	db := c.Get("db").(*gorm.DB)
+
+	var products []models.Product
+	db.Find(&products)
 	return c.JSON(http.StatusOK, products)
 }
 
 func Read(c echo.Context) error {
+	db := c.Get("db").(*gorm.DB)
+
 	id, _ := strconv.Atoi(c.Param("id"))
-	product, ok := products[id]
-	if !ok {
+	var product models.Product
+	if err := db.First(&product, id).Error; err != nil {
 		return c.JSON(http.StatusNotFound, "Product not found")
 	}
 	return c.JSON(http.StatusOK, product)
 }
 
 func Update(c echo.Context) error {
+	db := c.Get("db").(*gorm.DB)
+
 	id, _ := strconv.Atoi(c.Param("id"))
-	product, ok := products[id]
-	if !ok {
+	var product models.Product
+	if err := db.First(&product, id).Error; err != nil {
 		return c.JSON(http.StatusNotFound, "Product not found")
 	}
 
@@ -56,17 +54,19 @@ func Update(c echo.Context) error {
 		return err
 	}
 
-	products[id] = product
+	db.Save(&product)
 	return c.JSON(http.StatusOK, product)
 }
 
 func Delete(c echo.Context) error {
+	db := c.Get("db").(*gorm.DB)
+
 	id, _ := strconv.Atoi(c.Param("id"))
-	_, ok := products[id]
-	if !ok {
+	var product models.Product
+	if err := db.First(&product, id).Error; err != nil {
 		return c.JSON(http.StatusNotFound, "Product not found")
 	}
 
-	delete(products, id)
+	db.Delete(&product)
 	return c.NoContent(http.StatusNoContent)
 }
