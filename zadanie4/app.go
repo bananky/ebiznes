@@ -10,12 +10,12 @@ import (
 )
 
 func main() {
-	db, err := gorm.Open(sqlite.Open("products.db"), &gorm.Config{})
+	db, err := gorm.Open(sqlite.Open("baza.db"), &gorm.Config{})
 	if err != nil {
 		panic("Failed to connect to database")
 	}
 
-	db.AutoMigrate(&models.Product{})
+	db.AutoMigrate(&models.Product{}, &models.BasketItem{})
 
 	e := echo.New()
 
@@ -31,6 +31,12 @@ func main() {
 	e.GET("/products/:id", controllers.Read)
 	e.PUT("/products/:id", controllers.Update)
 	e.DELETE("/products/:id", controllers.Delete)
+
+	e.POST("/basket", controllers.AddToBasket)
+	e.GET("/basket", controllers.GetBasketItems)
+	e.GET("/basket/:id", controllers.GetBasketItem)
+	e.PUT("/basket/:id", controllers.UpdateBasketItem)
+	e.DELETE("/basket/:id", controllers.DeleteFromBasket)
 
 	e.Logger.Fatal(e.Start(":3000"))
 }
