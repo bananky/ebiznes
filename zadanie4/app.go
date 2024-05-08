@@ -15,7 +15,7 @@ func main() {
 		panic("Failed to connect to database")
 	}
 
-	db.AutoMigrate(&models.Product{}, &models.BasketItem{})
+	db.AutoMigrate(&models.Product{}, &models.BasketItem{}, &models.Category{})
 
 	e := echo.New()
 
@@ -37,6 +37,12 @@ func main() {
 	e.GET("/basket/:id", controllers.GetBasketItem)
 	e.PUT("/basket/:id", controllers.UpdateBasketItem)
 	e.DELETE("/basket/:id", controllers.DeleteFromBasket)
+
+	e.POST("/categories", controllers.CreateCategory)
+	e.GET("/categories", controllers.ReadAllCategories)
+	e.GET("/categories/:id", controllers.ReadCategory)
+	e.PUT("/categories/:id", controllers.UpdateCategory)
+	e.DELETE("/categories/:id", controllers.DeleteCategory)
 
 	e.Logger.Fatal(e.Start(":3000"))
 }
