@@ -1,20 +1,29 @@
 import React, { useState } from 'react';
 
 const Payments = () => {
-  const [paymentData, setPaymentData] = useState({
-    amount: 0,
+  const [formData, setFormData] = useState({
+    name: '',
     cardNumber: '',
-    expiryDate: '',
+    expirationDate: '',
     cvv: ''
   });
 
-  const handleInputChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    setPaymentData({ ...paymentData, [name]: value });
+    setFormData({
+      ...formData,
+      [name]: value
+    });
   };
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const paymentData = {
+      name: formData.name,
+      cardNumber: formData.cardNumber,
+      expirationDate: formData.expirationDate,
+      cvv: formData.cvv
+    };
     try {
       const response = await fetch('http://localhost:3000/payments', {
         method: 'POST',
@@ -23,49 +32,72 @@ const Payments = () => {
         },
         body: JSON.stringify(paymentData)
       });
-      const result = await response.json();
-      console.log(result.message);
+      const responseData = await response.json();
+      console.log(responseData);
     } catch (error) {
-      console.error('Error processing payment:', error);
+      console.error('Error:', error);
     }
   };
+  
+  
 
   return (
     <div>
-      <h2>Payments</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="number"
-          name="amount"
-          value={paymentData.amount}
-          onChange={handleInputChange}
-          placeholder="Amount"
-        />
-        <input
-          type="text"
-          name="cardNumber"
-          value={paymentData.cardNumber}
-          onChange={handleInputChange}
-          placeholder="Card Number"
-        />
-        <input
-          type="text"
-          name="expiryDate"
-          value={paymentData.expiryDate}
-          onChange={handleInputChange}
-          placeholder="Expiry Date"
-        />
-        <input
-          type="text"
-          name="cvv"
-          value={paymentData.cvv}
-          onChange={handleInputChange}
-          placeholder="CVV"
-        />
-        <button type="submit">Pay Now</button>
+      <h2>Płatności</h2>
+      <form onSubmit={handleSubmit} className="payment-form">
+        <div className="form-group">
+          <label>
+            Imię i nazwisko:
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </label>
+        </div>
+        <div className="form-group">
+          <label>
+            Numer karty:
+            <input
+              type="text"
+              name="cardNumber"
+              value={formData.cardNumber}
+              onChange={handleChange}
+              required
+            />
+          </label>
+        </div>
+        <div className="form-group">
+          <label>
+            Data ważności:
+            <input
+              type="text"
+              name="expirationDate"
+              value={formData.expirationDate}
+              onChange={handleChange}
+              required
+            />
+          </label>
+        </div>
+        <div className="form-group">
+          <label>
+            CVV:
+            <input
+              type="text"
+              name="cvv"
+              value={formData.cvv}
+              onChange={handleChange}
+              required
+            />
+          </label>
+        </div>
+        <button type="submit">Zapłać</button>
       </form>
     </div>
   );
 };
+
 
 export default Payments;
