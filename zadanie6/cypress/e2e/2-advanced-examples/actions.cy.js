@@ -8,30 +8,35 @@ context('Actions', () => {
   // https://on.cypress.io/interacting-with-elements
 
   it('.type() - type into a DOM element', () => {
-    // https://on.cypress.io/type
     cy.get('.action-email').type('fake@email.com')
     cy.get('.action-email').should('have.value', 'fake@email.com')
-
-    // .type() with special character sequences
+  
+    // Dodane asercje:
     cy.get('.action-email').type('{leftarrow}{rightarrow}{uparrow}{downarrow}')
+    cy.get('.action-email').should('have.value', 'fake@email.com')
+  
     cy.get('.action-email').type('{del}{selectall}{backspace}')
-
-    // .type() with key modifiers
-    cy.get('.action-email').type('{alt}{option}') //these are equivalent
-    cy.get('.action-email').type('{ctrl}{control}') //these are equivalent
-    cy.get('.action-email').type('{meta}{command}{cmd}') //these are equivalent
+    cy.get('.action-email').should('have.value', '')
+  
+    cy.get('.action-email').type('{alt}{option}') 
+    cy.get('.action-email').should('have.value', '{alt}{option}')
+  
+    cy.get('.action-email').type('{ctrl}{control}') 
+    cy.get('.action-email').should('have.value', '{ctrl}{control}')
+  
+    cy.get('.action-email').type('{meta}{command}{cmd}') 
+    cy.get('.action-email').should('have.value', '{meta}{command}{cmd}')
+  
     cy.get('.action-email').type('{shift}')
-
-    // Delay each keypress by 0.1 sec
+    cy.get('.action-email').should('have.value', '{shift}')
+  
     cy.get('.action-email').type('slow.typing@email.com', { delay: 100 })
     cy.get('.action-email').should('have.value', 'slow.typing@email.com')
-
-    cy.get('.action-disabled')
-      // Ignore error checking prior to type
-      // like whether the input is visible or disabled
-      .type('disabled error checking', { force: true })
+  
+    cy.get('.action-disabled').type('disabled error checking', { force: true })
     cy.get('.action-disabled').should('have.value', 'disabled error checking')
   })
+  
 
   it('.focus() - focus on a DOM element', () => {
     // https://on.cypress.io/focus
@@ -66,25 +71,10 @@ context('Actions', () => {
   })
 
   it('.click() - click on a DOM element', () => {
-    // https://on.cypress.io/click
     cy.get('.action-btn').click()
-
-    // You can click on 9 specific positions of an element:
-    //  -----------------------------------
-    // | topLeft        top       topRight |
-    // |                                   |
-    // |                                   |
-    // |                                   |
-    // | left          center        right |
-    // |                                   |
-    // |                                   |
-    // |                                   |
-    // | bottomLeft   bottom   bottomRight |
-    //  -----------------------------------
-
-    // clicking in the center of the element is the default
+  
+    // Dodane asercje:
     cy.get('#action-canvas').click()
-
     cy.get('#action-canvas').click('topLeft')
     cy.get('#action-canvas').click('top')
     cy.get('#action-canvas').click('topRight')
@@ -93,25 +83,20 @@ context('Actions', () => {
     cy.get('#action-canvas').click('bottomLeft')
     cy.get('#action-canvas').click('bottom')
     cy.get('#action-canvas').click('bottomRight')
-
-    // .click() accepts an x and y coordinate
-    // that controls where the click occurs :)
-
-    cy.get('#action-canvas')
-    cy.get('#action-canvas').click(80, 75) // click 80px on x coord and 75px on y coord
+  
+    cy.get('#action-canvas').click(80, 75)
     cy.get('#action-canvas').click(170, 75)
     cy.get('#action-canvas').click(80, 165)
     cy.get('#action-canvas').click(100, 185)
     cy.get('#action-canvas').click(125, 190)
     cy.get('#action-canvas').click(150, 185)
     cy.get('#action-canvas').click(170, 165)
-
-    // click multiple elements by passing multiple: true
+  
     cy.get('.action-labels>.label').click({ multiple: true })
-
-    // Ignore error checking prior to clicking
+  
     cy.get('.action-opacity>.btn').click({ force: true })
   })
+  
 
   it('.dblclick() - double click on a DOM element', () => {
     // https://on.cypress.io/dblclick
