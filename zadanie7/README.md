@@ -1,4 +1,4 @@
-# Projekt IV
+# Projekt V
 
 ## Quality Gate Status
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bananky_ebiznes&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=bananky_ebiznes)
