@@ -7,6 +7,8 @@ import (
 	"net/http"
 )
 
+const AccessControlAllowOrigin = "Access-Control-Allow-Origin"
+
 type Product struct {
 	ID    int    `json:"id"`
 	Name  string `json:"name"`
@@ -21,7 +23,7 @@ var products = []Product{
 
 func handleProducts(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set(AccessControlAllowOrigin, "*")
 	json.NewEncoder(w).Encode(products)
 }
 
@@ -33,7 +35,7 @@ type Payment struct {
 }
 
 func handleOptions(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Access-Control-Allow-Origin", "http://localhost:3001")
+	w.Header().Set(AccessControlAllowOrigin, "http://localhost:3001")
 	w.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS")
 	w.Header().Set("Access-Control-Allow-Headers", "*")
 	w.WriteHeader(http.StatusOK)
@@ -52,7 +54,7 @@ func handlePayments(w http.ResponseWriter, r *http.Request) {
 	}
 
 	responseData := map[string]string{"message": "Payment processed successfully", "data": fmt.Sprintf("%+v", payment)}
-	w.Header().Set("Access-Control-Allow-Origin", "http://localhost:3001")
+	w.Header().Set(AccessControlAllowOrigin, "http://localhost:3001")
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(responseData)
 }
