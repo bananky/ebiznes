@@ -56,10 +56,43 @@
 
 :white_check_mark: 3.0 wymaganie 1 [Link do commita 1](https://github.com/bananky/ebiznes/commit/c21a0be1e6c74ea23b829f47fd042b2d088c988a)
 
-:white_check_mark: 3.5 wymaganie 2 [Link do commita 2]()
+:white_check_mark: 3.5 wymaganie 2 [Link do commita 2](https://github.com/bananky/ebiznes/commit/1afbeff02d85d0959536a1159a5653e8ae8f317c)
 
-:x: 4.0 wymaganie 3 
+:white_check_mark: 4.0 wymaganie 3 [Link do commita 3](https://github.com/bananky/ebiznes/commit/1afbeff02d85d0959536a1159a5653e8ae8f317c)
 
-:x: 4.5 wymaganie 4 
+:white_check_mark: 4.5 wymaganie 4 [Link do commita 4](https://github.com/bananky/ebiznes/commit/fb6b613be28288fe132a80134c0a50c17766d18b)
 
 :x: 5.0 wymaganie 5 
+
+
+**Zadanie 6** Testy
+
+:white_check_mark: 3.0 wymaganie 1 [Link do commita 1](https://github.com/bananky/ebiznes/commit/be51b25ff2a0f2035b8769199bcb8dc70ccd500e)
+
+:white_check_mark: 3.5 wymaganie 2 [Link do commita 2](https://github.com/bananky/ebiznes/commit/b7a35d122fac4edd7b5303419dac97d7ef969bab)
+
+:white_check_mark: 4.0 wymaganie 3 [Link do commita 3](https://github.com/bananky/ebiznes/commit/c2fed7fd941fbdab5e344998ea7f993f0d5ceb3d)
+
+:white_check_mark: 4.5 wymaganie 4 [Link do commita 4](https://github.com/bananky/ebiznes/commit/dcaf99378999b1c86fef2c4ad12553f1581497eb)
+
+:x: 5.0 wymaganie 5 
+
+
+
+**Zadanie 7** Sonar
+
+:white_check_mark: 3.0 wymaganie 1 [Link do commita 1](https://github.com/bananky/ebiznes/commit/d2293d9a8f2b60d9690880c8dd5ee59c9c1bf700)
+
+:white_check_mark: 3.5 wymaganie 2 [Link do commita 2](https://github.com/bananky/ebiznes/commit/f0384fc8e939e84455b02860f6fe60e28525dd36)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=bananky_ebiznes&metric=bugs)](https://sonarcloud.io/summary/new_code?id=bananky_ebiznes)
+
+:white_check_mark: 4.0 wymaganie 3 
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=bananky_ebiznes&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=bananky_ebiznes)
+:white_check_mark: 4.5 wymaganie 4 
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=bananky_ebiznes&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=bananky_ebiznes)
+
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=bananky_ebiznes&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=bananky_ebiznes)
+
+:x: 5.0 wymaganie 5 
+
+
