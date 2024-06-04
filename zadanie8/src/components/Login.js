@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import GoogleLoginButton from './GoogleLoginButton';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -36,6 +37,7 @@ const Login = () => {
         <br />
         <button type="submit">Login</button>
       </form>
+      <GoogleLoginButton />
     </div>
   );
 };
