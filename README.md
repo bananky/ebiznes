@@ -96,3 +96,14 @@
 :x: 5.0 wymaganie 5 
 
 
+**Zadanie 8** OAuth
+
+:white_check_mark: 3.0 wymaganie 1 [Link do commita 1](https://github.com/bananky/ebiznes/commit/cb521034187029a38b9c3692639d9e60765bde04)
+
+:white_check_mark: 3.5 wymaganie 2 [Link do commita 2](https://github.com/bananky/ebiznes/commit/1c3bf892b0f91f91be8cd0a9401824c3ba88b1ce)
+
+:white_check_mark: 4.0 wymaganie 3 [Link do commita 3](https://github.com/bananky/ebiznes/commit/5fe40e724e4abd40600bf88ede3a79a12f62346c)
+
+:x: 4.5 wymaganie 4 
+
+:x: 5.0 wymaganie 5 
