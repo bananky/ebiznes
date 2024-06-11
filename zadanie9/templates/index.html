@@ -10,13 +10,34 @@
     <h1>ChatGPT Frontend</h1>
     
     <div>
-        <label for="prompt">Enter your prompt:</label>
-        <input type="text" id="prompt" name="prompt">
-        <button onclick="sendPrompt()">Send</button>
+        <h2>Losowe otwarcie rozmowy:</h2>
+        <button onclick="getOpening()">Pobierz otwarcie</button>
+        <p id="opening"></p>
     </div>
 
-    <div id="response"></div>
+    <div>
+        <h2>Losowe zamknięcie rozmowy:</h2>
+        <button onclick="getClosing()">Pobierz zamknięcie</button>
+        <p id="closing"></p>
+    </div>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+        function getOpening() {
+            fetch('/openings')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('opening').textContent = data;
+            });
+        }
+
+        function getClosing() {
+            fetch('/closings')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('closing').textContent = data;
+            });
+        }
+    </script>
 </body>
 </html>
