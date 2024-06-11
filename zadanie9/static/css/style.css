@@ -1,0 +1,18 @@
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
