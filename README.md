@@ -107,3 +107,16 @@
 :x: 4.5 wymaganie 4 
 
 :x: 5.0 wymaganie 5 
+
+
+**Zadanie 9** ChatGPT Bot
+
+:white_check_mark: 3.0 wymaganie 1 [Link do commita 1](https://github.com/bananky/ebiznes/commit/fb984d47b41e0745b91e58ad16aaf22925582a0f)
+
+:white_check_mark: 3.5 wymaganie 2 [Link do commita 2](https://github.com/bananky/ebiznes/commit/c98154cdebe18a4b34838c580fc5e3ce41884cf8)
+
+:white_check_mark: 4.0 wymaganie 3 [Link do commita 3](https://github.com/bananky/ebiznes/commit/dca3374e052777e72b9ac6d2844aad61f9f9cd5d)
+
+:x: 4.5 wymaganie 4 
+
+:x: 5.0 wymaganie 5 
