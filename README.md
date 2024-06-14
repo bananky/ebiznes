@@ -120,3 +120,16 @@
 :x: 4.5 wymaganie 4 
 
 :x: 5.0 wymaganie 5 
+
+
+**Zadanie 10** Chmura/CI
+
+:white_check_mark: 3.0 wymaganie 1 [Link do commita 1](https://github.com/bananky/ebiznes/commit/7ed8e2587c13718967df449563eabdd3c4161d9a)
+
+:white_check_mark: 3.5 wymaganie 2 [Link do commita 2](https://github.com/bananky/ebiznes/commit/c4baf1949ca65f0b9358c40def9488c01bd510b1)
+
+:white_check_mark: 4.0 wymaganie 3 [Link do commita 3](https://github.com/bananky/ebiznes/commit/81a1daabcdc85d44281e341d660337a4f245c923)
+
+:x: 4.5 wymaganie 4 
+
+:x: 5.0 wymaganie 5 
